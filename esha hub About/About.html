@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Site made Esha Hub v0.6 -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Esha Hub v0.6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="shortcut icon" href="assets/images/photo-1451187580459-43490279c0fa.webp" type="image/x-icon" />
+  <meta name="description" content="ESHA Hub, a student-led initiative, fosters innovation and connects dreamers with resources. Empowering ethical advancements in AI, healthtech, and space, ESHA Hub cultivates future leaders through collaboration and impactful projects.">
+  <title>ESHA Hub: Empowering Innovators and Changemakers for a Brighter Future</title>
+
+  <!-- CSS (Mobirise + Bootstrap as in your page) -->
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=BzNtwc">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=BzNtwc" type="text/css">
+
+  <style>
+    /* ---------- Global small fixes ---------- */
+    section.display-7{display:none !important;} /* kill extra spacer */
+    #footer-5-uOBAfY5Cxi{padding-top:28px;}     /* tighten footer */
+
+    /* ---------- Map section ---------- */
+    #contact-map-overlay{position:relative;overflow:hidden;}
+    #contact-map-overlay iframe{pointer-events:auto; display:block; width:100%; height:520px; border:0;}
+    /* Overlay should not block the map */
+    #contact-map-overlay .overlay-content{pointer-events:none; position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center; text-align:center; color:#fff;
+      background:rgba(0,0,0,.15); backdrop-filter:blur(1px);}
+    #contact-map-overlay .overlay-content a,
+    #contact-map-overlay .overlay-content button,
+    #map-label-badge{pointer-events:auto;}
+
+    /* Label badge on map */
+    #map-label-badge{
+      position:absolute; left:16px; bottom:16px; z-index:2;
+      background:rgba(255,255,255,.94); color:#0f172a; border-radius:14px; padding:10px 14px;
+      font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      box-shadow:0 6px 18px rgba(0,0,0,.15); display:flex; align-items:center; gap:10px;
+    }
+    #map-label-badge .dot{width:10px; height:10px; border-radius:50%; background:#2563eb;
+      box-shadow:0 0 0 3px rgba(37,99,235,.18);}
+
+    /* Map style toggle pills */
+    .map-style-switch{
+      position:absolute; right:16px; bottom:16px; z-index:2; display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .map-style-switch button{
+      border:0; padding:8px 14px; border-radius:999px; font-weight:600; font-size:13px;
+      background:#111827; color:#fff; opacity:.9; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.15);
+    }
+    .map-style-switch button.active{background:#2563eb;}
+    .map-style-switch button:focus{outline:2px solid #2563eb; outline-offset:2px;}
+
+    /* Default: Soft Gray look via CSS (no API needed) */
+    .map-softgray{filter:grayscale(100%) brightness(1.05) contrast(0.9);}
+    .map-clear{filter:none;}
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAV ===== -->
+  <section data-bs-version="5.1" class="menu menu2 cid-uOBAfXZjgv" once="menu" id="menu-5-uOBAfXZjgv">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-logo">
+            <a href="/esha%20hub%20About/About.html">
+              <img src="assets/images/photo-1451187580459-43490279c0fa.webp" alt="Esha Hub" style="height: 4.3rem;">
+            </a>
+          </span>
+          <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="/esha%20hub%20About/About.html">ESHA</a></span>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+            <li class="nav-item"><a class="nav-link link text-black display-4" href="/Research%20Hub/research-hub.html">Research Hub</a></li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" href="/Innovation%20Zone/innovation-zone.html">Innovation Zone</a></li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" href="/Mentorship%20Magic/mentorship-magic.html">Mentorship Magic</a></li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" href="/Community%20Connect/community-connect.html">community connect</a></li>
+          </ul>
+
+          <div class="navbar-buttons mbr-section-btn">
+            <a class="btn btn-primary display-4" href="/join%20page%20test/join%20page.html">Join</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ===== HERO 1 ===== -->
+  <section data-bs-version="5.1" class="header18 cid-uOBAfY0o3b mbr-fullscreen" data-bg-video="https://www.youtube.com/embed/B2sjfPE9-mk?autoplay=1&amp;loop=1&amp;playlist=B2sjfPE9-mk&amp;t=20&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1&amp;allowfullscreen=true&amp;mode=transparent" id="hero-15-uOBAfY0o3b">
+    <div class="mbr-overlay" style="opacity:.5; background:#000"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrap col-12 col-md-12">
+          <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1"><strong>ESHA Hub</strong></h1>
+          <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">Ideas Take Flight</p>
+          <div class="mbr-section-btn">
+            <a class="btn btn-white-outline display-7" href="/join%20page%20test/join%20page.html">Join Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HERO 2 ===== -->
+  <section data-bs-version="5.1" class="header18 cid-uOBAfY0rdb mbr-fullscreen" data-bg-video="https://www.youtube.com/embed/E9HYQnN251A?autoplay=1&amp;loop=1&amp;playlist=E9HYQnN251A&amp;t=20&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1&amp;allowfullscreen=true&amp;mode=transparent" id="video-5-uOBAfY0rdb">
+    <div class="mbr-overlay" style="opacity:.3; background:#000"></div>
+    <div class="container-fluid"><div class="row"></div></div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section data-bs-version="5.1" class="article15 cid-uOBAfY0NcA" id="about-us-15-uOBAfY0NcA">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md">
+          <h6 class="mbr-section-subtitle mbr-fonts-style mt-0 mb-4 display-5"><strong>ESHA Hub: Sparking innovation.</strong></h6>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <p class="mbr-text mbr-fonts-style display-7">ESHA Hub, a student-driven force, unites innovators and visionaries, providing a launchpad for ideas and dreams.</p>
+          <p class="mbr-text mbr-fonts-style display-7">Born from the desire to bridge the gap between inspiration and opportunity, we empower the next generation of changemakers.</p>
+          <p class="mbr-text mbr-fonts-style display-7">Together, we're shaping a future where innovation knows no bounds, fostering collaboration and driving progress across diverse fields.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section data-bs-version="5.1" class="list05 cid-uOBAfY1D6C" id="faq-3-uOBAfY1D6C">
+    <div class="container">
+      <div class="col-12 mb-5 content-head">
+        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Hub FAQs</strong></h3>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <div class="item features-without-image col-12 active">
+            <div class="item-wrapper">
+              <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>What does ESHA Hub do?</strong></h5>
+              <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">ESHA Hub empowers innovators by connecting bright minds with the tools, mentorship, and opportunities they need to turn ideas into reality — creating a collaborative ecosystem for research, innovation, and growth.</p>
+            </div>
+          </div>
+
+          <div class="item features-without-image col-12">
+            <div class="item-wrapper">
+              <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>What fields do you support?</strong></h5>
+              <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">We support ethical and future-driven advancements across fields like artificial intelligence, health technology, space research, sustainable systems, and other emerging domains — all aimed at building a smarter, safer, and better tomorrow.</p>
+            </div>
+          </div>
+
+          <div class="item features-without-image col-12">
+            <div class="item-wrapper">
+              <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>Who is on the team?</strong></h5>
+              <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">Our team brings together young researchers, engineers, and creators driven by a shared vision — to push boundaries, explore new possibilities, and build innovations that create real-world impact.</p>
+            </div>
+          </div>
+
+          <div class="item features-without-image col-12">
+            <div class="item-wrapper">
+              <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>Who are your supporters?</strong></h5>
+              <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">We collaborate with organizations such as Atmanirbhar Assam (CMAAA 2.0) and other development programs to expand our reach and empower innovative, research-driven initiatives.</p>
+            </div>
+          </div>
+
+          <div class="item features-without-image col-12">
+            <div class="item-wrapper">
+              <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>What are your milestones?</strong></h5>
+              <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">From successful projects to impactful government collaborations, ESHA Hub takes pride in its early achievements and remains dedicated to continuous innovation and growth.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECH FOCUS ===== -->
+  <section data-bs-version="5.1" class="features5 cid-uOBAfY1MnV" id="features-22-uOBAfY1MnV">
+    <div class="container">
+      <div class="row mb-5 justify-content-center">
+        <div class="col-12 content-head">
+          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Tech Focus</strong></h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+          <div class="item-wrapper"><div class="card-box align-left">
+            <h5 class="card-title mbr-fonts-style display-5"><strong>AI Edge</strong></h5>
+            <p class="card-text mbr-fonts-style display-7">AI drives efficiency gains</p>
+          </div></div>
+        </div>
+
+        <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+          <div class="item-wrapper"><div class="card-box align-left">
+            <h5 class="card-title mbr-fonts-style display-5"><strong>Cure Forward</strong></h5>
+            <p class="card-text mbr-fonts-style display-7">Healthtech improves patient care</p>
+          </div></div>
+        </div>
+
+        <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+          <div class="item-wrapper"><div class="card-box align-left">
+            <h5 class="card-title mbr-fonts-style display-5"><strong>Cosmic Link</strong></h5>
+            <p class="card-text mbr-fonts-style display-7">Space tech connects world</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section data-bs-version="5.1" class="gallery4 cid-uOBAfY2TOA" id="gallery-12-uOBAfY2TOA">
+    <div class="container-fluid gallery-wrapper">
+      <div class="row justify-content-center"><div class="col-12 content-head"></div></div>
+      <div class="grid-container">
+        <div class="grid-container-1" style="transform: translate3d(-200px,0,0);">
+          <div class="grid-item"><img src="assets/images/photo-1511352015382-902404d75843.webp" alt="Esha Hub"></div>
+          <div class="grid-item"><img src="assets/images/photo-1496065187959-7f07b8353c55.webp" alt="Esha Hub"></div>
+          <div class="grid-item"><img src="assets/images/photo-1589828994379-7a8869c4f519.webp" alt="Esha Hub"></div>
+          <div class="grid-item"><img src="assets/images/photo-1617791160505-6f00504e3519.webp" alt="Esha Hub"></div>
+        </div>
+        <div class="grid-container-2" style="transform: translate3d(-70px,0,0);">
+          <div class="grid-item"><img src="assets/images/photo-1523961131990-5ea7c61b2107.webp" alt="Esha Hub"></div>
+          <div class="grid-item"><img src="assets/images/photo-1480944657103-7fed22359e1d.webp" alt="Esha Hub"></div>
+          <div class="grid-item"><img src="assets/images/photo-1495420378468-78588a508652.webp" alt="Esha Hub"></div>
+          <div class="grid-item"><img src="assets/images/photo-1488229297570-58520851e868.webp" alt="Esha Hub"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWS ===== -->
+  <section data-bs-version="5.1" class="features12 cid-uOBAfY2ie7" id="news-1-uOBAfY2ie7">
+    <div class="container-fluid">
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 content-head">
+          <div class="mbr-section-head">
+            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Latest News</strong></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="item features-image col-12 col-md-6 col-lg-3">
+          <div class="item-wrapper">
+            <div class="item-img mb-3"><img src="assets/images/photo-1724525647065-f948fc102e68.webp" alt="Esha Hub"></div>
+            <div class="item-content align-left">
+              <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5"><strong>Health Device Improves Outcomes</strong></h5>
+              <p class="mbr-text mbr-fonts-style mb-3 display-7">Coming Soon</p>
+              <p class="mbr-text mbr-fonts-style mb-3 display-7">Dr. Esha healthtech device improves patient outcomes, reducing recovery times and enhancing overall care.</p>
+              <div class="mbr-section-btn item-footer"><a href="#" class="btn item-btn btn-primary display-7">More</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item features-image col-12 col-md-6 col-lg-3">
+          <div class="item-wrapper">
+            <div class="item-img mb-3"><img src="assets/images/photo-1499244571948-7ccddb3583f1.webp" alt="Esha Hub"></div>
+            <div class="item-content align-left">
+              <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5"><strong>Assam Funds Local Projects</strong></h5>
+              <p class="mbr-text mbr-fonts-style mb-3 display-7">Coming Soon</p>
+              <p class="mbr-text mbr-fonts-style mb-3 display-7">Atmanirbhar Assam supports local innovation, funding projects and driving economic growth in the region.</p>
+
+              <button class="btn btn-primary display-7 item-btn" type="button" data-bs-toggle="collapse" data-bs-target="#assamMore" aria-expanded="false" aria-controls="assamMore" style="border-radius:50px;padding:20px 32px;font-weight:500;box-shadow:0 4px 6px rgba(0,0,0,.1);transition:all .3s;">
+                More
+              </button>
+
+              <div class="collapse mt-3" id="assamMore">
+                <div class="card card-body">
+                  <h5 class="mb-2">About the Initiative</h5>
+                  <p class="mb-3">A government program enabling entrepreneurs, students, and makers to turn ideas into deployable solutions for Assam.</p>
+                  <ul class="mb-3">
+                    <li><strong>Focus Areas:</strong> AI, HealthTech, Agri-innovation, Skill &amp; MSME, Sustainability</li>
+                    <li><strong>Who Can Apply:</strong> Individuals, student teams, startups, community groups (as per program norms)</li>
+                    <li><strong>ESHA Hub Role:</strong> Mentoring, proposal drafting, prototype guidance, partner connections</li>
+                    <li><strong>Status:</strong> Partnership exploration &amp; pipeline building</li>
+                  </ul>
+                  <a class="btn btn-outline-primary" href="/join%20page%20test/join%20page.html" role="button">Join ESHA Hub</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <section data-bs-version="5.1" class="gallery10 cid-uOBAfY20Yy" id="features-61-uOBAfY20Yy">
+    <div class="container-fluid">
+      <div class="loop-container">
+        <div class="item display-1" data-linewords="Our Story   Mission   Our Team   Supporters   Milestones   Impact  " data-direction="-1" data-speed="0.05">☁️ Best offers ☁️ Free delivery ☁️ Perfect design ☁️ Comfort ☁️ Support 24/7 ☁️ Vibes</div>
+        <div class="item display-1" data-linewords="Our Story   Mission   Our Team   Supporters   Milestones   Impact  " data-direction="-1" data-speed="0.05">☁️ Best offers ☁️ Free delivery ☁️ Perfect design ☁️ Comfort ☁️ Support 24/7 ☁️ Vibes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA (Zoho) ===== -->
+  <section id="cta-ideas" style="background:#e0b10b;padding:64px 0;">
+    <div class="container" style="max-width:1100px;margin:0 auto;text-align:center;">
+      <h2 style="font-weight:800;font-size:52px;margin:0 0 28px;color:#1f2b22;">Ideas Take Flight Here</h2>
+      <div class="cta-row" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center;">
+        <input id="ctaEmail" type="email" placeholder="your@email.com" aria-label="Email" style="flex:1 1 420px;max-width:520px;height:56px;border-radius:999px;border:1px solid rgba(0,0,0,.1);background:#fff;padding:0 22px;font-size:18px;outline:0;">
+        <button id="ctaJoinBtn" type="button" style="height:58px;padding:0 32px;border-radius:999px;border:none;background:#2873d9;color:#fff;font-weight:700;font-size:18px;cursor:pointer;box-shadow:0 10px 18px rgba(40,115,217,.25);">Join The Movement</button>
+      </div>
+      <p id="ctaMsg" style="margin-top:10px;color:#1f2b22;font-size:14px;min-height:20px;"></p>
+    </div>
+  </section>
+
+  <script>
+    /* ===== Zoho CTA ===== */
+    const ZOHO_FORM_URL="https://forms.zohopublic.in/infoesh1/form/IdeasTakeFlightHere/formperma/izwUwLbEtR3veDY3bTYe2iXP7bU00iv_YwPz4xRMtQo";
+    function openCentered(url,w=740,h=760){const l=Math.max(0,(screen.width-w)/2);const t=Math.max(0,(screen.height-h)/2);window.open(url,"zohoNewsletter",`width=${w},height=${h},left=${l},top=${t},toolbar=0,location=0,status=0,scrollbars=1,resizable=1`)}
+    function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
+    const emailEl=document.getElementById("ctaEmail");const btnEl=document.getElementById("ctaJoinBtn");const msgEl=document.getElementById("ctaMsg");
+    function go(){const email=(emailEl.value||"").trim();if(!isEmail(email)){msgEl.textContent="Please enter a valid email.";msgEl.style.color="#b00020";emailEl.focus();return}
+      const u=new URL(ZOHO_FORM_URL);u.searchParams.set("Email",email);u.searchParams.set("zf_rszfm","1");openCentered(u.toString());msgEl.textContent="Almost done — please submit the popup form.";msgEl.style.color="#1f2b22"}
+    btnEl.addEventListener("click",go);emailEl.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();go()}})
+  </script>
+
+  <!-- ===== TEAM ===== -->
+  <section data-bs-version="5.1" class="people03 cid-uOBAfY4Fp5" id="team-1-uOBAfY4Fp5">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 content-head">
+          <div class="mbr-section-head mb-5"><h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Our Crew</strong></h4></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="item features-image col-12 col-md-6 col-lg-3">
+          <div class="item-wrapper">
+            <div class="item-img mb-3"><img src="/esha%20hub%20About/assets/images/Anuj.jpg" alt="Esha Hub"></div>
+            <div class="item-content align-left">
+              <h5 class="item-title mbr-fonts-style display-5"><strong>Anuj</strong></h5>
+              <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Treasurer</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="item features-image col-12 col-md-6 col-lg-3">
+          <div class="item-wrapper">
+            <div class="item-img mb-3"><img src="/esha%20hub%20About/assets/images/Geolong.jpg" alt="Esha Hub" title="Geolong"></div>
+            <div class="item-content align-left">
+              <h5 class="item-title mbr-fonts-style display-5"><strong>Geolong</strong></h5>
+              <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Science Team</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="item features-image col-12 col-md-6 col-lg-3">
+          <div class="item-wrapper">
+            <div class="item-img mb-3"><img src="/esha%20hub%20About/assets/images/Hatorkhi.jpg" alt="Esha Hub"></div>
+            <div class="item-content align-left">
+              <h5 class="item-title mbr-fonts-style display-5"><strong>Hatorkhi</strong></h5>
+              <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Programmer</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="item features-image col-12 col-md-6 col-lg-3">
+          <div class="item-wrapper">
+            <div class="item-img mb-3"><img src="/esha%20hub%20About/assets/images/Lokhen.jpg" alt="Esha Hub" data-slide-to="3" data-bs-slide-to="3"></div>
+            <div class="item-content align-left">
+              <h5 class="item-title mbr-fonts-style display-5"><strong>Lokhen</strong></h5>
+              <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Programmer</h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT (Zoho) ===== -->
+  <section data-bs-version="5.1" class="form5 cid-uOBAfY51Sl" id="contact-form-2-uOBAfY51Sl" style="padding:56px 0 32px;">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mx-auto mbr-form">
+        <div id="zohoContactWrap" style="border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.08);">
+          <iframe id="zohoContact" title="Contact" aria-label="Contact" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:900px;border:0;display:block;" src="https://forms.zohopublic.in/infoesh1/form/Contact/formperma/Fon-yE5KPZZODT8U_r7sJHdKRxAsmzJLo5yjueR-ROo?zf_rszfm=1"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacer -->
+  <div style="height:28px"></div>
+
+  <!-- ===== MAP (No API key) with Style Toggle ===== -->
+  <section id="contact-map-overlay">
+    <div id="map-label-badge" aria-hidden="true">
+      <span class="dot"></span>
+      ESHA Hub – Research &amp; Innovation Space
+    </div>
+
+    <!-- style toggle -->
+    <div class="map-style-switch" role="group" aria-label="Map style switch">
+      <button id="btn-soft" class="active" type="button" title="Soft Gray (Default)">Soft Gray</button>
+      <button id="btn-sat"  type="button" title="Satellite + Labels">Satellite</button>
+    </div>
+
+    <!-- Map iframe -->
+    <iframe
+      id="eshahub-map"
+      class="map-softgray"
+      title="ESHA Hub Location"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=26.676388,93.160718&hl=en&z=16&output=embed&maptype=roadmap">
+    </iframe>
+
+    <!-- Text overlay -->
+    <div class="overlay-content">
+      <div style="padding:0 16px;">
+        <h2 style="font-size:48px;font-weight:700;margin-bottom:18px;">Get In Touch</h2>
+        <p style="font-size:18px;line-height:1.7;margin-bottom:0;">
+          Email: <a href="mailto:info@eshahub.com" style="color:#fff;text-decoration:underline;">info@eshahub.com</a><br>
+          Address: Biswanath Ghat Road, Biswanath Chariali, Pin 784176<br>
+          Work Hours: Mon–Fri 9 am – 5 pm
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <section data-bs-version="5.1" class="footer2 cid-uOBAfY5Cxi" once="footers" id="footer-5-uOBAfY5Cxi" style="margin-top:0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 center mt-2 mb-3">
+          <p class="mbr-fonts-style copyright mb-0 display-7">© 2025 ESHA Hub. All rights reserved.</p>
+        </div>
+        <div class="col-12 col-lg-6 center">
+          <div class="row-links mt-2 mb-3">
+            <ul class="row-links-soc">
+              <li class="row-links-soc-item mbr-fonts-style display-7"><a href="#" class="text-white">About</a></li>
+              <li class="row-links-soc-item mbr-fonts-style display-7"><a href="#" class="text-white">Projects</a></li>
+              <li class="row-links-soc-item mbr-fonts-style display-7"><a href="#" class="text-white">Team</a></li>
+              <li class="row-links-soc-item mbr-fonts-style display-7"><a href="#" class="text-white">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/parallax/jarallax.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/ytplayer/index.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/vimeoplayer/player.js"></script>
+  <script src="assets/scrollgallery/scroll-gallery.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/formoid/formoid.min.js"></script>
+
+  <!-- Map style toggle logic (no API) -->
+  <script>
+    (function(){
+      const map   = document.getElementById('eshahub-map');
+      const bSoft = document.getElementById('btn-soft');
+      const bSat  = document.getElementById('btn-sat');
+
+      const ROADMAP_URL   = "https://www.google.com/maps?q=26.676388,93.160718&hl=en&z=16&output=embed&maptype=roadmap"; // option 3
+      const SATELLITE_URL = "https://www.google.com/maps?q=26.676388,93.160718&t=k&hl=en&z=17&output=embed";               // option 4
+
+      function setActive(btnOn, btnOff){
+        btnOn.classList.add('active'); btnOff.classList.remove('active');
+      }
+
+      bSoft.addEventListener('click', () => {
+        if (!bSoft.classList.contains('active')) {
+          map.src = ROADMAP_URL;
+          map.classList.remove('map-clear');
+          map.classList.add('map-softgray'); // soft gray look
+          setActive(bSoft, bSat);
+        }
+      });
+
+      bSat.addEventListener('click', () => {
+        if (!bSat.classList.contains('active')) {
+          map.src = SATELLITE_URL;
+          map.classList.remove('map-softgray');
+          map.classList.add('map-clear'); // no filter on satellite
+          setActive(bSat, bSoft);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

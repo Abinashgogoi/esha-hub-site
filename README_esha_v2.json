@@ -1,0 +1,160 @@
+{
+  "ui_profile": "B (slightly modern: perf/security upgrades, no design break)",
+  "image_optimization": "Medium (quality=85 WebP conversions)",
+  "security": "Strong headers (text file included)",
+  "changes": {
+    "images_converted": [
+      [
+        "esha hub About/assets/images/Anuj.jpg",
+        "esha hub About/assets/images/Anuj.webp"
+      ],
+      [
+        "esha hub About/assets/images/background1.jpg",
+        "esha hub About/assets/images/background1.webp"
+      ],
+      [
+        "esha hub About/assets/images/Geolong.jpg",
+        "esha hub About/assets/images/Geolong.webp"
+      ],
+      [
+        "esha hub About/assets/images/Hatorkhi.jpg",
+        "esha hub About/assets/images/Hatorkhi.webp"
+      ],
+      [
+        "esha hub About/assets/images/Lokhen.jpg",
+        "esha hub About/assets/images/Lokhen.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1451187580459-43490279c0fa.jpeg",
+        "esha hub About/assets/images/photo-1451187580459-43490279c0fa.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1455849318743-b2233052fcff.jpeg",
+        "esha hub About/assets/images/photo-1455849318743-b2233052fcff.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1456327102063-fb5054efe647.jpeg",
+        "esha hub About/assets/images/photo-1456327102063-fb5054efe647.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1480944657103-7fed22359e1d.jpeg",
+        "esha hub About/assets/images/photo-1480944657103-7fed22359e1d.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1485811661309-ab85183a729c.jpeg",
+        "esha hub About/assets/images/photo-1485811661309-ab85183a729c.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1488229297570-58520851e868.jpeg",
+        "esha hub About/assets/images/photo-1488229297570-58520851e868.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1489980791458-937dcbaf1d5b.jpeg",
+        "esha hub About/assets/images/photo-1489980791458-937dcbaf1d5b.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1495420378468-78588a508652.jpeg",
+        "esha hub About/assets/images/photo-1495420378468-78588a508652.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1496065187959-7f07b8353c55.jpeg",
+        "esha hub About/assets/images/photo-1496065187959-7f07b8353c55.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1499244571948-7ccddb3583f1.jpeg",
+        "esha hub About/assets/images/photo-1499244571948-7ccddb3583f1.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1511352015382-902404d75843.jpeg",
+        "esha hub About/assets/images/photo-1511352015382-902404d75843.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1523961131990-5ea7c61b2107.jpeg",
+        "esha hub About/assets/images/photo-1523961131990-5ea7c61b2107.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1529854140025-25995121f16f.jpeg",
+        "esha hub About/assets/images/photo-1529854140025-25995121f16f.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1531561855568-3036cd4f03ba.jpeg",
+        "esha hub About/assets/images/photo-1531561855568-3036cd4f03ba.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1568530134868-5d89f49d5a72.jpeg",
+        "esha hub About/assets/images/photo-1568530134868-5d89f49d5a72.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1578161456171-a346107c3dcf.jpeg",
+        "esha hub About/assets/images/photo-1578161456171-a346107c3dcf.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1589571894960-20bbe2828d0a.jpeg",
+        "esha hub About/assets/images/photo-1589571894960-20bbe2828d0a.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1589828994379-7a8869c4f519.jpeg",
+        "esha hub About/assets/images/photo-1589828994379-7a8869c4f519.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1591084728795-1149f32d9866.jpeg",
+        "esha hub About/assets/images/photo-1591084728795-1149f32d9866.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1592669546196-bb70d4f16dd7.jpeg",
+        "esha hub About/assets/images/photo-1592669546196-bb70d4f16dd7.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1617791160505-6f00504e3519.jpeg",
+        "esha hub About/assets/images/photo-1617791160505-6f00504e3519.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1617791160536-598cf32026fb.jpeg",
+        "esha hub About/assets/images/photo-1617791160536-598cf32026fb.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1621624666561-84d0107001dc.jpeg",
+        "esha hub About/assets/images/photo-1621624666561-84d0107001dc.webp"
+      ],
+      [
+        "esha hub About/assets/images/photo-1724525647065-f948fc102e68.jpeg",
+        "esha hub About/assets/images/photo-1724525647065-f948fc102e68.webp"
+      ]
+    ],
+    "https_upgrades": [
+      "Community Connect/community-connect.html",
+      "Innovation Zone/innovation-zone.html",
+      "join page test/join page.html",
+      "Mentorship Magic/mentorship-magic.html",
+      "Research Hub/research-hub.html"
+    ],
+    "meta_description_added": [
+      "join page test/join page.html"
+    ],
+    "css_minified": [
+      "esha hub About/assets/bootstrap/css/bootstrap-grid.min.css",
+      "esha hub About/assets/bootstrap/css/bootstrap-reboot.min.css",
+      "esha hub About/assets/bootstrap/css/bootstrap.min.css",
+      "esha hub About/assets/dropdown/css/style.css",
+      "esha hub About/assets/mobirise/css/mbr-additional.css",
+      "esha hub About/assets/parallax/jarallax.css",
+      "esha hub About/assets/socicon/css/styles.css",
+      "esha hub About/assets/theme/css/style.css",
+      "esha hub About/assets/web/assets/mobirise-icons2/mobirise2.css"
+    ],
+    "js_minified": [
+      "esha hub About/assets/bootstrap/js/bootstrap.bundle.min.js",
+      "esha hub About/assets/dropdown/js/navbar-dropdown.js",
+      "esha hub About/assets/formoid/formoid.min.js",
+      "esha hub About/assets/parallax/jarallax.js",
+      "esha hub About/assets/scrollgallery/scroll-gallery.js",
+      "esha hub About/assets/smoothscroll/smooth-scroll.js",
+      "esha hub About/assets/theme/js/script.js",
+      "esha hub About/assets/vimeoplayer/player.js",
+      "esha hub About/assets/ytplayer/index.js"
+    ],
+    "webp_rewrites": [
+      "esha hub About/assets/mobirise/css/mbr-additional.css"
+    ]
+  }
+}

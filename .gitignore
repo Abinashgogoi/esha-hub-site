@@ -1,0 +1,15 @@
+# VSCode settings (local only)
+.vscode/
+
+# Live Server extension heavy files (ignore fully)
+.vscode/extensions/
+
+# Node modules (very heavy, auto install hote hain)
+node_modules/
+
+# Build / Cache
+dist/
+.cache/
+
+# Ignore vscode AI rules
+.github/instructions/codacy.instructions.md

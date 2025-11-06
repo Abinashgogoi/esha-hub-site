@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ESHA Hub - Member Registration</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- intl-tel-input -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.5.3/css/intlTelInput.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.5.3/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.5.3/js/utils.js"></script>
+
+<style>
+  .form-container{max-width:960px;margin:0 auto;padding:2rem;background:#fff;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+  .step-indicator{display:flex;justify-content:space-between;margin-bottom:2rem;gap:.75rem}
+  .step{text-align:center;flex:1;position:relative}
+  .step-number{width:40px;height:40px;background:#6b7280;color:#fff;border-radius:9999px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-weight:700}
+  .step-title{font-size:.875rem;color:#6b7280;font-weight:600}
+  .step.active .step-number{background:#3b82f6}
+  .step.completed .step-number{background:#10b981}
+  .step.active .step-title,.step.completed .step-title{color:#111827}
+  .step-connector{position:absolute;top:20px;left:60%;right:-10%;height:2px;background:#e5e7eb;z-index:-1}
+  .step:last-child .step-connector{display:none}
+  .terms-container{max-height:420px;overflow-y:auto;border:1px solid #e5e7eb;padding:1rem;margin-bottom:1rem;background:#f9fafb;border-radius:8px}
+  .resume-preview{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:2rem;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+  .video-preview{width:100%;aspect-ratio:16/9;background:#e5e7eb;display:flex;align-items:center;justify-content:center;border-radius:8px;margin-bottom:1rem}
+  .draggable-upload-area{border:2px dashed #9ca3af;border-radius:8px;padding:2rem;text-align:center;cursor:pointer;transition:all .25s ease;background:#f9fafb}
+  .draggable-upload-area:hover{border-color:#3b82f6;background:#eff6ff}
+  .step-section{transition:opacity .25s ease}
+  .step-section.hidden{display:none;opacity:0}
+  #status-check{animation:pulse-green 2s infinite}
+  @keyframes pulse-green{0%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+  .iti{width:100%}
+  .file-pill{display:inline-flex;align-items:center;gap:.4rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:9999px;padding:.25rem .6rem;margin:.25rem .25rem 0 0;font-size:.775rem}
+  /* Print styles override for Agreement */
+  @media print {
+    /* Hide everything by default */
+    body * {
+      visibility: hidden;
+    }
+    /* Only show the agreement section */
+    #section1, #section1 * {
+      visibility: visible;
+    }
+    #section1 {
+      position: static;
+      overflow: visible;
+    }
+    /* Remove height restriction on the agreement terms to print full content */
+    .terms-container {
+      max-height: none;
+      overflow: visible;
+    }
+    /* Hide step indicator and buttons in print */
+    .step-indicator, #print-btn, #next-btn-1 {
+      display: none !important;
+    }
+    /* Remove padding, margin and shadows for print layout */
+    .form-container {
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    /* Ensure page breaks after the agreement */
+    #section1 {
+      page-break-after: always;
+    }
+  }
+</style>
+<meta name="description" content="ESHA Hub — Innovation, Research, Collaboration, and Community.">
+</head>
+<body class="bg-gray-100 min-h-screen pt-10 pb-20">
+<div class="container mx-auto px-4">
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold text-indigo-700 mb-2">Join ESHA Hub</h1>
+    <p class="text-lg text-gray-600">Become a permanent member of our innovation community</p>
+  </div>
+
+  <div class="form-container">
+    <div class="step-indicator">
+      <div class="step active" id="step1"><div class="step-number">1</div><div class="step-title">Agreement</div><div class="step-connector"></div></div>
+      <div class="step" id="step2"><div class="step-number">2</div><div class="step-title">Application</div><div class="step-connector"></div></div>
+      <div class="step" id="step3"><div class="step-number">3</div><div class="step-title">Preview</div><div class="step-connector"></div></div>
+      <div class="step" id="step4"><div class="step-number">4</div><div class="step-title">Status</div><div class="step-connector"></div></div>
+      <div class="step" id="step5"><div class="step-number">5</div><div class="step-title">Upload</div></div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step-section" id="section1">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Agreement to ESHA's Values & Terms</h2>
+      <div class="terms-container">
+        <h3 class="text-xl font-bold mb-4">ESHA Hub Membership Agreement</h3>
+        <p class="mb-3">
+          Welcome to <strong>ESHA Hub</strong> — a community built to inspire innovation, encourage collaboration, and promote ethical technological advancement.
+          By joining, you become part of a mission-driven ecosystem of learners, creators, and changemakers.
+        </p>
+
+        <h4 class="font-bold text-lg mt-4 mb-2">Our Core Values</h4>
+        <ul class="list-disc pl-5 space-y-2 mb-4">
+          <li><strong>Integrity</strong> – We uphold honesty, transparency, and ethical responsibility in every action.</li>
+          <li><strong>Collaboration</strong> – We believe in shared growth through teamwork, mentorship, and open exchange of ideas.</li>
+          <li><strong>Innovation</strong> – We aim to create meaningful, practical, and futuristic solutions to real-world challenges.</li>
+          <li><strong>Respect</strong> – We value diversity, inclusivity, and a safe environment for every member’s opinion and creativity.</li>
+          <li><strong>Impact</strong> – We strive to make positive contributions to society through knowledge, research, and action.</li>
+        </ul>
+
+        <h4 class="font-bold text-lg mt-4 mb-2">Member Commitment</h4>
+        <p class="mb-2">By proceeding, I acknowledge that as a member of ESHA Hub:</p>
+        <ol class="list-decimal pl-5 space-y-2 mb-4">
+          <li>I will actively participate in learning, research, and community-driven initiatives.</li>
+          <li>I will maintain ethical conduct, honesty, and respect toward fellow members and mentors.</li>
+          <li>I understand that ESHA Hub’s classes, projects, documents, and internal communications are <strong>confidential</strong> and must not be shared, copied, or published outside the platform without official approval.</li>
+          <li>If any member intentionally shares, leaks, or misuses ESHA Hub’s internal or sensitive information, their membership may be suspended or permanently revoked, and further action may be taken if required.</li>
+          <li>I will not misuse ESHA Hub’s resources, data, or platforms for personal, harmful, or unauthorized purposes.</li>
+          <li>I understand that access to member features (dashboard, classes, community board, and projects) is granted <strong>after verification and approval</strong>.</li>
+          <li>I agree that ESHA Hub may review or terminate membership if ethical or behavioral standards are violated.</li>
+        </ol>
+
+        <h4 class="font-bold text-lg mt-4 mb-2">Declaration</h4>
+        <p class="mb-4">
+          By clicking <strong>“I Agree”</strong> and last submitting this application upload, I confirm that I have read, understood, and accepted the above values and terms of ESHA Hub membership.
+        </p>
+
+        <div class="space-y-2 text-sm text-gray-700 mb-1">
+          <p><strong>Member Name:</strong> ____________________________</p>
+          <p><strong>Date:</strong> ____________________________</p>
+          <p><strong>Signature :</strong> ____________________________</p>
+        </div>
+      </div>
+      <div class="flex items-center mb-6">
+        <input type="checkbox" id="agree-terms" class="mr-2 h-5 w-5" />
+        <label for="agree-terms" class="text-gray-700">I agree to ESHA's values and terms</label>
+      </div>
+      <div class="flex justify-between">
+        <button class="px-4 py-2 rounded-md text-white bg-indigo-600 opacity-50 cursor-not-allowed" disabled id="print-btn">Print Agreement</button>
+        <button class="px-4 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed" id="next-btn-1" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-section hidden" id="section2">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Application Form</h2>
+      <p class="text-gray-600 mb-6">Please complete all fields below to apply for ESHA Hub membership.</p>
+      <form id="application-form" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+            <input type="text" id="full-name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address*</label>
+            <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+            <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter phone number" />
+            <input type="hidden" id="country-code" />
+            <p id="phone-error" class="mt-1 text-sm text-red-600 hidden">Please select country code and enter a valid phone number.</p>
+          </div>
+
+          <div>
+            <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender*</label>
+            <select id="gender" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth*</label>
+            <input type="date" id="dob" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+          <div>
+            <label for="background" class="block text-sm font-medium text-gray-700 mb-1">Educational/Professional Background*</label>
+            <input type="text" id="background" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address*</label>
+          <textarea id="address" required rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label for="motivation" class="block text-sm font-medium text-gray-700 mb-1">Why do you want to join ESHA Hub? (Motivation)*</label>
+          <textarea id="motivation" required rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label for="vision" class="block text-sm font-medium text-gray-700 mb-1">Your vision, goal, or dream*</label>
+          <textarea id="vision" required rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Area of Primary Interest*</label>
+          <select id="interest" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="">Select an area</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="space">Space Exploration</option>
+            <option value="healthtech">Health Technology</option>
+            <option value="biotech">Biotechnology</option>
+            <option value="energy">Sustainable Energy</option>
+            <option value="fintech">Financial Technology</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Profile Image*</label>
+          <div class="flex items-center">
+            <div class="mr-4">
+              <div class="w-20 h-20 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center">
+                <img id="profile-image-preview" class="hidden w-full h-full object-cover" alt="Profile Preview" />
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+            </div>
+            <div class="draggable-upload-area" id="profile-dropzone">
+              <input type="file" id="profile-image" accept="image/*" class="hidden" />
+              <p class="text-sm text-gray-500">Click to upload profile photo</p>
+              <p class="text-xs text-gray-400">JPG/PNG (max 2MB)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label for="portfolio" class="block text-sm font-medium text-gray-700 mb-1">Previous Work/Projects/Portfolio (Optional)</label>
+          <div class="draggable-upload-area" id="portfolio-dropzone">
+            <input type="file" id="portfolio" class="hidden" multiple />
+            <p class="text-sm text-gray-500">Drag & drop files here or click to browse</p>
+            <p class="text-xs text-gray-400 mt-1">PDF/DOC/Images (max 10MB each) — or paste links below</p>
+          </div>
+          <div id="portfolio-files" class="mt-2 text-sm text-gray-600 hidden"></div>
+          <input type="text" id="portfolio-links" placeholder="Or paste links to your work (comma-separated)" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" />
+        </div>
+
+        <div class="flex items-center mb-6">
+          <input type="checkbox" id="agree-confirm" required class="mr-2 h-5 w-5" />
+          <label for="agree-confirm" class="text-gray-700">I understand I must submit proof of agreement at the final step</label>
+        </div>
+
+        <div class="flex justify-between">
+          <button type="button" class="px-4 py-2 rounded-md text-gray-700 bg-gray-200 hover:bg-gray-300 transition" id="prev-btn-2">← Previous</button>
+          <button type="button" class="px-4 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition" id="next-btn-2">Next →</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-section hidden" id="section3">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Application Preview</h2>
+      <p class="text-gray-600 mb-6">Review your information before submission.</p>
+      <div class="resume-preview mb-6" id="resume-content">
+        <h3 class="text-2xl font-bold mb-2" id="preview-name">—</h3>
+        <div class="mb-4 flex items-center gap-4">
+          <img id="preview-photo" alt="Profile Photo Preview" class="hidden w-16 h-16 rounded-full object-cover border border-gray-300" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div>
+            <h4 class="font-bold text-gray-700 mb-2">Contact Information</h4>
+            <p id="preview-email">—</p>
+            <p id="preview-phone">—</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-700 mb-2">Personal Details</h4>
+            <p id="preview-gender">—</p>
+            <p id="preview-dob">—</p>
+            <p id="preview-interest">—</p>
+          </div>
+        </div>
+        <div class="mb-6">
+          <h4 class="font-bold text-gray-700 mb-2">Background</h4>
+          <p id="preview-background">—</p>
+        </div>
+        <div class="mb-6">
+          <h4 class="font-bold text-gray-700 mb-2">Motivation</h4>
+          <p id="preview-motivation">—</p>
+        </div>
+        <div class="mb-6">
+          <h4 class="font-bold text-gray-700 mb-2">Vision/Goal</h4>
+          <p id="preview-vision">—</p>
+        </div>
+        <div class="mb-6">
+          <h4 class="font-bold text-gray-700 mb-2">Address</h4>
+          <p id="preview-address">—</p>
+        </div>
+        <div id="preview-portfolio-section" class="hidden">
+          <h4 class="font-bold text-gray-700 mb-2">Portfolio</h4>
+          <div id="preview-portfolio"></div>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button type="button" class="px-4 py-2 rounded-md text-gray-700 bg-gray-200 hover:bg-gray-300 transition" id="prev-btn-3">← Previous</button>
+        <button type="button" class="px-4 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition" id="next-btn-3">Submit Application →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-section hidden" id="section4">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Application Submitted</h2>
+      <div class="text-center py-8">
+        <div class="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4" id="status-check">
+          <svg xmlns="https://www.w3.org/2000/svg" class="h-10 w-10 text-green-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-green-700 mb-2">Your application has been submitted!</h3>
+        <p class="text-gray-600 mb-2">Status: <span class="font-semibold text-indigo-600">Pending Manual Review</span></p>
+        <p class="text-sm text-gray-600 mb-6" id="ids-line"></p>
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
+          <div class="flex">
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">Next: After approval, upload your signed agreement and optional video before receiving full access to ESHA Hub.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <button type="button" class="px-6 py-3 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition" id="next-btn-4">Continue to Final Steps →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-section hidden" id="section5">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Final Verification</h2>
+      <p class="text-gray-600 mb-6">Please complete these final steps to verify your ESHA Hub membership.</p>
+
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-700 mb-4">1. Video Introduction (2–3 minutes)</h3>
+        <div class="video-preview mb-2" id="video-preview">
+          <div class="text-center text-gray-500">No video uploaded yet</div>
+        </div>
+        <div class="draggable-upload-area" id="video-dropzone">
+          <input type="file" id="video-upload" accept="video/*" class="hidden" />
+          <p class="text-sm text-gray-500">Drag & drop video here or click to browse (MP4/MOV/AVI, max 100MB)</p>
+        </div>
+        <div id="video-file-info" class="mt-2 text-sm text-gray-600 hidden"></div>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-700 mb-4">2. Signed Agreement</h3>
+        <div class="draggable-upload-area" id="agreement-dropzone">
+          <input type="file" id="agreement-upload" accept=".pdf,.jpg,.jpeg,.png" class="hidden" />
+          <p class="text-sm text-gray-500">Drag & drop scanned agreement or click to browse (PDF/JPG/PNG, max 10MB)</p>
+        </div>
+        <div id="agreement-file-info" class="mt-2 text-sm text-gray-600 hidden"></div>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-700 mb-4">3. Additional Documents (Optional)</h3>
+        <div class="draggable-upload-area" id="docs-dropzone">
+          <input type="file" id="docs-upload" multiple class="hidden" />
+          <p class="text-sm text-gray-500">Drag & drop files or click to browse (PDF/JPG/PNG, max 10MB each)</p>
+        </div>
+        <div id="docs-file-info" class="mt-2 text-sm text-gray-600 hidden"></div>
+      </div>
+
+      <div class="flex justify-between">
+        <button type="button" class="px-4 py-2 rounded-md text-gray-700 bg-gray-200 hover:bg-gray-300 transition" id="prev-btn-5">← Previous</button>
+        <button type="button" class="px-4 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed" id="submit-final" disabled>Submit Final →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden" id="confirmation-modal">
+    <div class="bg-white rounded-lg p-6 max-w-md">
+      <div class="text-center mb-4">
+        <svg xmlns="https://www.w3.org/2000/svg" class="h-16 w-16 text-green-500 mx-auto" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <h3 class="text-xl font-bold text-gray-800 mt-2">Thank you!</h3>
+      </div>
+      <p class="text-gray-600 mb-6">Your verification materials have been submitted.</p>
+      <div class="text-center">
+        <button class="px-6 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition" id="close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GLOBAL LOADING OVERLAY -->
+<div id="global-wait"
+     class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg p-4 shadow text-center w-[220px]">
+    <div class="mx-auto mb-3">
+      <div class="h-8 w-8 mx-auto rounded-full border-2 border-indigo-500 border-t-transparent animate-spin"></div>
+    </div>
+    <p class="text-gray-700 text-sm leading-snug">
+      Processing… please wait,<br/>
+      contacting ESHA server…
+    </p>
+  </div>
+</div>
+
+<script>
+/* ================== CONFIG ================== */
+const WORKER_BASE = "https://esha-hub-api.abinashgogoi506.workers.dev"; // worker root (no trailing slash)
+const ABOUT_URL = "../esha hub About/About.html"; // redirect after close
+const REPORT_LINK_NAME = "All_Applications"; // Zoho report link_name
+const PORTFOLIO_FIELD_LINK_NAME = "Previous_Work_Projects_Portfolio_Optional"; // Zoho file field link_name
+const PORTFOLIO_FIELD = PORTFOLIO_FIELD_LINK_NAME;
+
+let CREATED = { recordId: null, applicationId: null };
+
+/* ================== UI Helpers ================== */
+function goToStep(step){
+  const sections = document.querySelectorAll('.step-section');
+  const steps = document.querySelectorAll('.step');
+  sections.forEach(s=>s.classList.add('hidden'));
+  steps.forEach((s,i)=>{
+    s.classList.remove('active','completed');
+    if(i+1 < step) s.classList.add('completed');
+    if(i+1 === step) s.classList.add('active');
+  });
+  document.getElementById('section' + step).classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Step 1 */
+const agreeTerms = document.getElementById('agree-terms');
+const printBtn = document.getElementById('print-btn');
+const nextBtn1 = document.getElementById('next-btn-1');
+agreeTerms.addEventListener('change', () => {
+  const on = agreeTerms.checked;
+  nextBtn1.disabled = !on; printBtn.disabled = !on;
+  printBtn.classList.toggle('opacity-50', !on);
+  printBtn.classList.toggle('cursor-not-allowed', !on);
+});
+printBtn.addEventListener('click', () => window.print());
+nextBtn1.addEventListener('click', () => goToStep(2));
+
+/* DOB min/max (2025 cap) */
+(function lockDOB(){
+  const dob = document.getElementById('dob');
+  const targetYear = 2025;
+  const minDate = new Date(targetYear - 90, 0, 1);
+  const maxDate = new Date(targetYear, 11, 31);
+  const fmt = d => d.toISOString().slice(0,10);
+  dob.min = fmt(minDate);
+  dob.max = fmt(maxDate);
+})();
+
+/* intl-tel-input setup */
+const phoneInput = document.getElementById('phone');
+const hiddenCountryCode = document.getElementById('country-code');
+const phoneError = document.getElementById('phone-error');
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "in",
+  separateDialCode: true,
+  nationalMode: false,
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.5.3/js/utils.js"
+});
+phoneInput.addEventListener('countrychange', () => {
+  const data = iti.getSelectedCountryData();
+  hiddenCountryCode.value = data.dialCode ? ("+" + data.dialCode) : "";
+});
+phoneInput.addEventListener('blur', () => {
+  const valid = iti.isValidNumber();
+  phoneError.classList.toggle('hidden', !!valid);
+});
+(function(){ const d=iti.getSelectedCountryData(); hiddenCountryCode.value = d.dialCode?("+"+d.dialCode):""; })();
+
+document.getElementById('prev-btn-2').addEventListener('click', ()=> goToStep(1));
+
+/* Profile image */
+const profileDz = document.getElementById('profile-dropzone');
+const profileInp = document.getElementById('profile-image');
+const profilePrev = document.getElementById('profile-image-preview');
+profileDz.addEventListener('click', ()=> profileInp.click());
+profileDz.addEventListener('dragover', e=>{ e.preventDefault(); profileDz.classList.add('ring','ring-indigo-300'); });
+profileDz.addEventListener('dragleave', ()=> profileDz.classList.remove('ring','ring-indigo-300'));
+profileDz.addEventListener('drop', e=>{
+  e.preventDefault(); profileDz.classList.remove('ring','ring-indigo-300');
+  if(e.dataTransfer.files && e.dataTransfer.files[0]){ profileInp.files = e.dataTransfer.files; handleProfile(); }
+});
+profileInp.addEventListener('change', handleProfile);
+let PROFILE_FILE = null;
+function handleProfile(){
+  const f = profileInp.files && profileInp.files[0];
+  if(!f) return;
+  if(!/^image\//.test(f.type)){ alert('Only image files allowed'); profileInp.value=''; return; }
+  if(f.size > 2*1024*1024){ alert('Max 2MB image'); profileInp.value=''; return; }
+  PROFILE_FILE = f;
+  const r=new FileReader();
+  r.onload = e=>{ profilePrev.src = e.target.result; profilePrev.classList.remove('hidden'); };
+  r.readAsDataURL(f);
+}
+
+/* Portfolio files/links */
+const portDz = document.getElementById('portfolio-dropzone');
+const portInp = document.getElementById('portfolio');
+const portFilesBox = document.getElementById('portfolio-files');
+const portLinks = document.getElementById('portfolio-links');
+let PORT_FILES = []; // File[]
+portDz.addEventListener('click', ()=> portInp.click());
+portDz.addEventListener('dragover', e=>{ e.preventDefault(); portDz.classList.add('ring','ring-indigo-300'); });
+portDz.addEventListener('dragleave', ()=> portDz.classList.remove('ring','ring-indigo-300'));
+portDz.addEventListener('drop', async e=>{
+  e.preventDefault(); portDz.classList.remove('ring','ring-indigo-300');
+  if(e.dataTransfer.files && e.dataTransfer.files.length){ await collectPortfolio(Array.from(e.dataTransfer.files)); }
+});
+portInp.addEventListener('change', async ()=>{ if(portInp.files && portInp.files.length){ await collectPortfolio(Array.from(portInp.files)); } });
+
+async function collectPortfolio(files){
+  for(const f of files){
+    if(f.size > 10*1024*1024){ alert(`File too large: ${f.name}`); continue; }
+    PORT_FILES.push(f);
+  }
+  renderPortFiles();
+}
+function renderPortFiles(){
+  if(PORT_FILES.length===0){ portFilesBox.classList.add('hidden'); portFilesBox.innerHTML = ''; return; }
+  portFilesBox.classList.remove('hidden');
+  portFilesBox.innerHTML = PORT_FILES.map(x=>`<span class="file-pill" title="${x.name}">${x.name}</span>`).join('');
+}
+
+/* Utils */
+function splitName(full){
+  const parts = (full||'').trim().split(/\s+/);
+  const first = parts.shift()||''; const last = parts.join(' ') || '';
+  return { first, last };
+}
+
+/* Collect + Preview → Step 3 */
+document.getElementById('next-btn-2').addEventListener('click', ()=>{
+  const form = document.getElementById('application-form');
+  if(!form.reportValidity()) return;
+  if(!PROFILE_FILE){ alert('Please upload a profile image'); return; }
+  if(!iti.isValidNumber()){ phoneError.classList.remove('hidden'); phoneInput.focus(); return; }
+
+  const fullName = document.getElementById('full-name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const e164 = iti.getNumber(); // full
+  const gender = document.getElementById('gender').value;
+  const dob = document.getElementById('dob').value;
+  const background = document.getElementById('background').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const motivation = document.getElementById('motivation').value.trim();
+  const vision = document.getElementById('vision').value.trim();
+  const interest = document.getElementById('interest').value;
+
+  document.getElementById('preview-name').textContent = fullName || '—';
+  document.getElementById('preview-email').textContent = email || '—';
+  document.getElementById('preview-phone').textContent = e164 || '—';
+  document.getElementById('preview-gender').textContent = gender || '—';
+  document.getElementById('preview-dob').textContent = dob || '—';
+  const interestMap = {ai:'Artificial Intelligence',space:'Space Exploration',healthtech:'Health Technology',biotech:'Biotechnology',energy:'Sustainable Energy',fintech:'Financial Technology',other:'Other'};
+  document.getElementById('preview-interest').textContent = interestMap[interest] || '—';
+  document.getElementById('preview-background').textContent = background || '—';
+  document.getElementById('preview-motivation').textContent = motivation || '—';
+  document.getElementById('preview-vision').textContent = vision || '—';
+  document.getElementById('preview-address').textContent = address || '—';
+
+  const r=new FileReader();
+  r.onload = e=>{ const img=document.getElementById('preview-photo'); img.src=e.target.result; img.classList.remove('hidden'); };
+  r.readAsDataURL(PROFILE_FILE);
+
+  const linkStr = (portLinks.value||'').trim();
+  const links = linkStr ? linkStr.split(',').map(s=>s.trim()).filter(Boolean) : [];
+  const portSec = document.getElementById('preview-portfolio-section');
+  const portList = document.getElementById('preview-portfolio');
+  if(PORT_FILES.length || links.length){
+    portSec.classList.remove('hidden');
+    let html = '';
+    if(links.length){ html += `<div class="mb-2"><strong>Links:</strong> ${links.map(h=>`<a href="${h}" target="_blank" class="text-indigo-600 underline">${h}</a>`).join(', ')}</div>`; }
+    if(PORT_FILES.length){ html += `<div><strong>Files:</strong> ${PORT_FILES.map(x=>`<span class="file-pill">${x.name}</span>`).join('')}</div>`; }
+    portList.innerHTML = html;
+  } else { portSec.classList.add('hidden'); portList.innerHTML = ''; }
+
+  goToStep(3);
+});
+
+document.getElementById('prev-btn-3').addEventListener('click', ()=> goToStep(2));
+
+/* ===== GLOBAL WAIT REF ===== */
+const globalWait = document.getElementById('global-wait');
+
+/* ===== Step 3 SUBMIT → Cloudflare Worker ===== */
+document.getElementById('next-btn-3').addEventListener('click', async ()=>{
+  const btn = document.getElementById('next-btn-3');
+
+  // pretty loading UI
+  btn.disabled = true;
+  btn.innerHTML = `
+    <span class="inline-flex items-center gap-2">
+      <span class="h-4 w-4 border-2 border-white/60 border-t-transparent rounded-full animate-spin"></span>
+      Sending…
+    </span>
+  `;
+
+  globalWait.classList.remove('hidden');
+
+  try{
+    const fullName = document.getElementById('full-name').value.trim();
+    const { first, last } = splitName(fullName);
+    const email = document.getElementById('email').value.trim();
+    const e164 = iti.getNumber();
+    const gender = document.getElementById('gender').value;
+    const dob = document.getElementById('dob').value;
+    const background = document.getElementById('background').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const motivation = document.getElementById('motivation').value.trim();
+    const vision = document.getElementById('vision').value.trim();
+    const interest = document.getElementById('interest').value;
+    const portfolioLinks = (document.getElementById('portfolio-links').value||'').trim();
+
+    const fd = new FormData();
+    fd.append("_report", REPORT_LINK_NAME);
+
+    fd.append("Candidate_Name", first);
+    fd.append("Last_Name", last);
+    fd.append("Email", email);
+    fd.append("Phone", e164);
+    fd.append("Gender", gender);
+    fd.append("DOB", dob);
+    fd.append("Background", background);
+    fd.append("Motivation", motivation);
+    fd.append("Vision", vision);
+    fd.append("Interest", interest);
+    fd.append("Address", address);
+
+    if (PROFILE_FILE) fd.append("Profile_Image_file", PROFILE_FILE, PROFILE_FILE.name || "profile.jpg");
+    if (portfolioLinks) fd.append("Portfolio_Links", portfolioLinks);
+    for (const f of PORT_FILES) { fd.append(`${PORTFOLIO_FIELD}[]`, f, f.name || "portfolio.bin"); }
+
+    const res = await fetch(WORKER_BASE, { method: "POST", body: fd });
+    const text = await res.text();
+    let data = {};
+    try { data = JSON.parse(text); } catch { data = { raw:text }; }
+
+    if(!res.ok || data.success !== true){
+      console.error('Worker error:', res.status, data);
+      alert('Submit failed:\n' + (data.error || JSON.stringify(data)));
+      return;
+    }
+
+    CREATED.recordId = data.recordId || null;
+    CREATED.applicationId = data.applicationId || null;
+
+    const line = document.getElementById('ids-line');
+    line.textContent = `${CREATED.applicationId ? 'Application ID: ' + CREATED.applicationId + '  •  ' : ''}Record ID: ${CREATED.recordId || '—'}`;
+
+    goToStep(4);
+  }catch(err){
+    console.error(err);
+    alert('Network error while submitting. Please try again.');
+  }finally{
+    globalWait.classList.add('hidden');
+    btn.disabled = false;
+    btn.textContent = 'Submit Application →';
+  }
+});
+
+document.getElementById('next-btn-4').addEventListener('click', ()=> goToStep(5));
+document.getElementById('prev-btn-5').addEventListener('click', ()=> goToStep(4));
+
+/* ===== Step 5 uploads (multipart uploadOnly) ===== */
+const videoDz = document.getElementById('video-dropzone');
+const videoInp = document.getElementById('video-upload');
+const videoInfo = document.getElementById('video-file-info');
+const agrDz = document.getElementById('agreement-dropzone');
+const agrInp = document.getElementById('agreement-upload');
+const agrInfo = document.getElementById('agreement-file-info');
+const docsDz = document.getElementById('docs-dropzone');
+const docsInp = document.getElementById('docs-upload');
+const docsInfo = document.getElementById('docs-file-info');
+const submitFinal = document.getElementById('submit-final');
+
+let VIDEO_FILE = null, AGREEMENT_FILE = null, DOC_FILES = [];
+
+function pill(name){ return `<span class="file-pill">${name}</span>`; }
+
+videoDz.addEventListener('click', ()=> videoInp.click());
+videoDz.addEventListener('dragover', e=>{ e.preventDefault(); videoDz.classList.add('ring','ring-indigo-300'); });
+videoDz.addEventListener('dragleave', ()=> videoDz.classList.remove('ring','ring-indigo-300'));
+videoDz.addEventListener('drop', e=>{
+  e.preventDefault(); videoDz.classList.remove('ring','ring-indigo-300');
+  const f = e.dataTransfer.files && e.dataTransfer.files[0];
+  if(f){ setVideo(f); }
+});
+videoInp.addEventListener('change', ()=>{ const f=videoInp.files[0]; if(f){ setVideo(f); } });
+function setVideo(f){
+  if(f.size > 100*1024*1024){ alert('Max 100MB for video'); return; }
+  VIDEO_FILE = f;
+  const prev = document.getElementById('video-preview');
+  prev.innerHTML = `<video controls class="w-full rounded"><source src="${URL.createObjectURL(f)}" /></video>`;
+  videoInfo.classList.remove('hidden'); videoInfo.innerHTML = pill(f.name);
+  updateFinalBtn();
+}
+
+agrDz.addEventListener('click', ()=> agrInp.click());
+agrDz.addEventListener('dragover', e=>{ e.preventDefault(); agrDz.classList.add('ring','ring-indigo-300'); });
+agrDz.addEventListener('dragleave', ()=> agrDz.classList.remove('ring','ring-indigo-300'));
+agrDz.addEventListener('drop', e=>{
+  e.preventDefault(); agrDz.classList.remove('ring','ring-indigo-300');
+  const f = e.dataTransfer.files && e.dataTransfer.files[0];
+  if(f){ setAgreement(f); }
+});
+agrInp.addEventListener('change', ()=>{ const f=agrInp.files[0]; if(f){ setAgreement(f); } });
+function setAgreement(f){
+  if(f.size > 10*1024*1024){ alert('Max 10MB for agreement'); return; }
+  AGREEMENT_FILE = f;
+  agrInfo.classList.remove('hidden'); agrInfo.innerHTML = pill(f.name);
+  updateFinalBtn();
+}
+
+docsDz.addEventListener('click', ()=> docsInp.click());
+docsDz.addEventListener('dragover', e=>{ e.preventDefault(); docsDz.classList.add('ring','ring-indigo-300'); });
+docsDz.addEventListener('dragleave', ()=> docsDz.classList.remove('ring','ring-indigo-300'));
+docsDz.addEventListener('drop', e=>{
+  e.preventDefault(); docsDz.classList.remove('ring','ring-indigo-300');
+  if(e.dataTransfer.files && e.dataTransfer.files.length){
+    addDocs(Array.from(e.dataTransfer.files));
+  }
+});
+docsInp.addEventListener('change', ()=>{ if(docsInp.files && docsInp.files.length){ addDocs(Array.from(docsInp.files)); } });
+function addDocs(files){
+  for(const f of files){
+    if(f.size > 10*1024*1024){ alert(`File too large: ${f.name}`); continue; }
+    DOC_FILES.push(f);
+  }
+  if(DOC_FILES.length){
+    docsInfo.classList.remove('hidden');
+    docsInfo.innerHTML = DOC_FILES.map(f=>pill(f.name)).join('');
+  } else {
+    docsInfo.classList.add('hidden'); docsInfo.innerHTML = '';
+  }
+}
+function updateFinalBtn(){ submitFinal.disabled = !(VIDEO_FILE && AGREEMENT_FILE); }
+
+/* Submit final (uploadOnly) */
+const confirmationModal = document.getElementById('confirmation-modal');
+const closeModalBtn = document.getElementById('close-modal');
+
+submitFinal.addEventListener('click', async ()=>{
+  if(!CREATED.recordId){ alert('Record ID missing. Please submit application first.'); return; }
+
+  // better loading UI
+  submitFinal.disabled = true;
+  submitFinal.innerHTML = `
+    <span class="inline-flex items-center gap-2">
+      <span class="h-4 w-4 border-2 border-white/60 border-t-transparent rounded-full animate-spin"></span>
+      Uploading…
+    </span>
+  `;
+
+  globalWait.classList.remove('hidden');
+
+  try{
+    const fd = new FormData();
+    fd.append('_report', REPORT_LINK_NAME);
+    fd.append('_action', 'uploadOnly');
+    fd.append('existingRecordId', CREATED.recordId);
+    if (CREATED.applicationId) fd.append('applicationId', CREATED.applicationId);
+
+    if(VIDEO_FILE) fd.append(`${PORTFOLIO_FIELD}[]`, VIDEO_FILE, VIDEO_FILE.name || 'intro.mp4');
+    if(AGREEMENT_FILE) fd.append(`${PORTFOLIO_FIELD}[]`, AGREEMENT_FILE, AGREEMENT_FILE.name || 'agreement.pdf');
+    for(const f of DOC_FILES){ fd.append(`${PORTFOLIO_FIELD}[]`, f, f.name || 'doc.bin'); }
+
+    const res = await fetch(WORKER_BASE, { method:'POST', body: fd });
+    const text = await res.text();
+    let data = {};
+    try { data = JSON.parse(text); } catch { data = { raw:text }; }
+
+    if(!res.ok || (data.success !== true && data.ok !== true)){
+      console.error('Upload-only error:', res.status, data);
+      alert('Upload failed:\n' + (data.error || JSON.stringify(data)));
+      return;
+    }
+
+    confirmationModal.classList.remove('hidden');
+  }catch(err){
+    console.error(err);
+    alert('Final submission failed:\n' + (err.message || err));
+  }finally{
+    globalWait.classList.add('hidden');
+    submitFinal.disabled = false;
+    submitFinal.textContent = 'Submit Final →';
+  }
+});
+
+/* Close → redirect to About */
+closeModalBtn.addEventListener('click', ()=>{
+  confirmationModal.classList.add('hidden');
+  try { window.location.href = ABOUT_URL; } catch { }
+});
+</script>
+</body>
+</html>
