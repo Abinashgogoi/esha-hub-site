@@ -136,11 +136,11 @@
       "esha hub About/assets/bootstrap/css/bootstrap-reboot.min.css",
       "esha hub About/assets/bootstrap/css/bootstrap.min.css",
       "esha hub About/assets/dropdown/css/style.css",
-      "esha hub About/assets/mobirise/css/mbr-additional.css",
+      "esha hub About/assets/eshahub/css/mbr-additional.css",
       "esha hub About/assets/parallax/jarallax.css",
       "esha hub About/assets/socicon/css/styles.css",
       "esha hub About/assets/theme/css/style.css",
-      "esha hub About/assets/web/assets/mobirise-icons2/mobirise2.css"
+      "esha hub About/assets/web/assets/eshahub-icons2/eshahub2.css"
     ],
     "js_minified": [
       "esha hub About/assets/bootstrap/js/bootstrap.bundle.min.js",
@@ -154,7 +154,7 @@
       "esha hub About/assets/ytplayer/index.js"
     ],
     "webp_rewrites": [
-      "esha hub About/assets/mobirise/css/mbr-additional.css"
+      "esha hub About/assets/eshahub/css/mbr-additional.css"
     ]
   }
 }
